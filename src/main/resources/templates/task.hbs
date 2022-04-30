@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <a href="#">
+        <a href="/">
             <div class="header">
-                <img src="./images/triangle.png" alt="icon">
+                <img src="/images/triangle.png" alt="icon">
                 <h1>Tasks</h1>
             </div>
 
         </a>
         <div class="body">
             <div class="task-middle">
-                <form action="">
-                    <input type="text" class="input-text" placeholder="Task Title">
-                    <input type="text" class="input-text" placeholder="Due Date">
-                    <textarea class="text-area" placeholder="Description" rows="10">
-                        
+                <form action="/task/edit/{{Task.id}}" method="post">
+                    <input type="text" disabled="disabled" value="{{Task.title}}" class="input-text" placeholder="Task Title">
+                    <input type="text" disabled="disabled" value="{{Task.dueDate}}" class="input-text" placeholder="Due Date">
+                    <textarea class="text-area" disabled="disabled" placeholder="Description" rows="10">
+                         {{Task.description}}
                     </textarea>
                     <div class="form-buttons mg-top">
-                        <input  class="btn btn-stroke" type="submit" value="Mark As Done" />
-                        <input  class="btn " type="submit" value="Save Task" />
+                        <input  class="btn  btn-stroke" name="complete" type="submit" value="Complete" />
+                        <input  class="btn " name="delete" type="submit" value="Delete" />
                     </div>
                     
                 </form>

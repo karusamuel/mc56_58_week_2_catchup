@@ -18,31 +18,35 @@
   
         <div class="body">
             <div class="left">
-                <form action="">
-                    <input type="text" class="input-text" placeholder="Task Title">
-                    <input type="date" class="input-text" placeholder="Due Date">
-                    <textarea class="text-area" placeholder="Description" rows="10">
+                <form action="" method="post">
+                    <input type="text" name="title" class="input-text" placeholder="Task Title">
+                    <input type="date" name="date" class="input-text" placeholder="Due Date">
+                    <textarea name="desc" class="text-area" placeholder="Description" rows="10">
                         
                     </textarea>
                     <input  class="btn mg-top" type="submit" value="Save Task" />
                 </form>
             </div>
             <div class="right">
-                <a href="#">
+
+                {{#each Tasks}}
+                <a href="/task/{{id}}">
                     <div class="task-strip">
                         <div class="img-div">
                             <img src="./images/triangle_white.png" alt="icon">
                         </div>
                         <div class="middle">
                             <div class="tick">
+                                {{#if isComplete}}
                                 <img c src="./images/check.png" alt="check">
+                                {{/if}}
                             </div>
                             
-                            <p>Cook Food</p>
+                            <p>{{title}}</p>
                         </div>
 
                         <div class="end">
-                            <div class="date-view"><span class="label">Date :</span><span class="date">11/12/2022</span> </div> 
+                            <div class="date-view"><span class="label">Date :</span><span class="date">{{dueDate}}</span> </div>
                             <div class="end-img-container">
                                 <img class="end-icon" src="./images/chevron-right.png" alt="">
                             </div>
@@ -50,7 +54,10 @@
                         </div>
                     </div>
                 </a>
-
+                {{/each}}
+                {{#if true}}
+                    <a href="/all_tasks">show all</a>
+                {{/if}}
             </div>
         </div>     
     </div>
